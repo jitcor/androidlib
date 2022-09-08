@@ -10,7 +10,7 @@ allprojects {
 ```
 ```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.1'
+	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.2'
 	}
 ```
 # 使用RSharedPreferences
@@ -30,7 +30,7 @@ allprojects {
 ```
 ```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:XReflectHelpers:1.0.1'
+	            implementation 'com.github.Humenger.androidlib:XReflectHelpers:1.0.2'
 	}
 ```
 # 使用XReflectHelpers
