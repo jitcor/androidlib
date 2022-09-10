@@ -10,12 +10,13 @@ allprojects {
 ```
 ```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.2'
+	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.3'
 	}
 ```
 # 使用RSharedPreferences
 ```java
 RSharedPreferences.getSharedPreferences(context,name,mode);
+RSharedPreferences.addPreferencesFromResource(activity,preferencesResId);
 ```
 
 # 接入XReflectHelpers
