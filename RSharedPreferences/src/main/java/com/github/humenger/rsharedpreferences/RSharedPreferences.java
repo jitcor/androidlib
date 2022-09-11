@@ -24,7 +24,7 @@ public class RSharedPreferences {
             if(cacheContextMap.containsKey(originalBase)){
                 throw new IllegalArgumentException("context is contains");
             }
-            XReflectHelpers.setMyObjectField(activity,"base",new RContextWrapper(originalBase));
+            XReflectHelpers.setMyObjectField(activity,"mBase",new RContextWrapper(originalBase));
             cacheContextMap.put(originalBase,activity);
         }
     }
@@ -56,7 +56,7 @@ public class RSharedPreferences {
         if(!cacheContextMap.containsKey(originalBase)){
            return;
         }
-        XReflectHelpers.setMyObjectField(Objects.requireNonNull(cacheContextMap.get(originalBase)),"base",originalBase);
+        XReflectHelpers.setMyObjectField(Objects.requireNonNull(cacheContextMap.get(originalBase)),"mBase",originalBase);
         cacheContextMap.remove(originalBase);
     }
 

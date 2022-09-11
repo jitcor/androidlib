@@ -10,7 +10,7 @@ allprojects {
 ```
 ```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.3'
+	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.4'
 	}
 ```
 # 使用RSharedPreferences
