@@ -6,6 +6,6 @@ public class Demo {
     public static final String TAG = "Demo";
 
     public static void main(String[] args) {
-        RSharedPreferences.addPreferencesFromResource(null,0);
+
     }
 }
