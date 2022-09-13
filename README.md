@@ -17,6 +17,7 @@ dependencies {
 ```java
 RSharedPreferences.getSharedPreferences(context,name,mode);
 RSharedPreferences.addPreferencesFromResource(activity,preferencesResId);
+RSharedPreferences.getSharedPreferences(getPreferenceManager());
 ```
 
 # 接入XReflectHelpers
