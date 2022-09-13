@@ -79,7 +79,9 @@ public class RContextWrapper extends Context {
     public String getPackageCodePath() {return this.base.getPackageCodePath();}
 
     @Override
-    public SharedPreferences getSharedPreferences(String name, int mode) {return RSharedPreferences.getSharedPreferences(this,name,mode);}
+    public SharedPreferences getSharedPreferences(String name, int mode) {
+        return RSharedPreferences.getSharedPreferences(this,name,mode);
+    }
 
     @Override
     public boolean moveSharedPreferencesFrom(Context sourceContext, String name) {return this.base.moveSharedPreferencesFrom(sourceContext,name);}
