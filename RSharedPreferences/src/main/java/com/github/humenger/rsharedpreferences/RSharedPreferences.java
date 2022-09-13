@@ -84,5 +84,27 @@ public class RSharedPreferences {
         }
 
     }
+    public static SharedPreferences getSharedPreferences(android.preference.PreferenceManager preferenceManager){
+        Context context= (Context) XReflectHelpers.callMyMethod(preferenceManager,"getContext");
+        if(context==null)return preferenceManager.getSharedPreferences();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            try {
+                if(Reflection.unseal(context)!=0){
+                    Log.w(TAG, "getSharedPreferences: Disable hide api check failed");
+                }
+                int ori = XReflectHelpers.getMyIntField(context.getApplicationInfo(), "targetSdkVersion");
+                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
+                SharedPreferences preferences = preferenceManager.getSharedPreferences();
+                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
+                return preferences;
+            }catch (Throwable throwable){
+                throwable.printStackTrace();
+                return preferenceManager.getSharedPreferences();
+            }
+        }else {
+            return preferenceManager.getSharedPreferences();
+        }
+
+    }
 
 }
