@@ -8,7 +8,7 @@ import dalvik.system.DexClassLoader;
 
 public class HSystemHelpers {
     public static final String TAG = "HSystemHelpers";
-    public String findSystemJarPathWithClassName(Context context,String className){
+    public static String findSystemJarPathWithClassName(Context context,String className){
 
         String sysJarList[]=System.getenv("BOOTCLASSPATH").split(":");
         String hshCache = context.getDir("HSH_cache", Context.MODE_PRIVATE).getPath();
