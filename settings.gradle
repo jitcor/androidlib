@@ -19,3 +19,4 @@ rootProject.name = "androidlib"
 include ':app'
 include ':RSharedPreferences'
 include ':XReflectHelpers'
+include ':HSystemHelpers'

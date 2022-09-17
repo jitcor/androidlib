@@ -1,5 +1,4 @@
-# 接入RSharedPreferences
-- 解决`MODE_WORLD_WRITEABLE no longer supported`问题
+# 统一接入源
 ```groovy
 allprojects {
 		repositories {
@@ -8,9 +7,14 @@ allprojects {
 		}
 	}
 ```
+# 最新版本
+[![](https://jitpack.io/v/Humenger/androidlib.svg)](https://jitpack.io/#Humenger/androidlib)
+# 接入RSharedPreferences
+- 解决`MODE_WORLD_WRITEABLE no longer supported`问题
+
 ```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:1.0.7'
+	            implementation 'com.github.Humenger.androidlib:RSharedPreferences:{latest_version}'
 	}
 ```
 # 使用RSharedPreferences
@@ -33,16 +37,8 @@ SharedPreferences preferences= RSharedPreferences.sharedPreferencesBypass(getCon
 # 接入XReflectHelpers
 - 移植Xposed的反射库，可以在任何APP中使用，就相当于一个普通的反射库
 ```groovy
-allprojects {
-		repositories {
-			//...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-```
-```groovy
 dependencies {
-	            implementation 'com.github.Humenger.androidlib:XReflectHelpers:1.0.2'
+	            implementation 'com.github.Humenger.androidlib:XReflectHelpers:{latest_version}'
 	}
 ```
 # 使用XReflectHelpers
@@ -52,3 +48,15 @@ XReflectHelpers.XXXX();
 ### api列表
  ![XReflectHelpers](./images/XReflectHelpers.png)
 
+# 接入HSystemHelpers
+- 一些系统辅助类
+```groovy
+dependencies {
+	            implementation 'com.github.Humenger.androidlib:HSystemHelpers:{latest_version}'
+	}
+```
+# 使用HSystemHelpers
+```java
+//根据class名字查找其对应的系统jar所在路径
+HSystemHelpers.findSystemJarPathWithClassName(context,"");
+```
