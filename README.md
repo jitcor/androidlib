@@ -47,5 +47,5 @@ XReflectHelpers.XXXX();
 # 使用HSystemHelpers
 ```java
 //根据class名字查找其对应的系统jar所在路径
-HSystemHelpers.findSystemJarPathWithClassName("");
+HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
 ```
