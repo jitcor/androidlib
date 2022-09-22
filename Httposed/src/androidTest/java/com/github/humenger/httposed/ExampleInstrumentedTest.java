@@ -1,4 +1,4 @@
-package com.github.humenger.ehttpinterceptor;
+package com.github.humenger.httposed;
 
 import android.content.Context;
 
