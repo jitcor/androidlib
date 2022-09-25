@@ -49,3 +49,8 @@ XReflectHelpers.XXXX();
 //根据class名字查找其对应的系统jar所在路径
 HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
 ```
+# 接入Httposed(开发中)
+- 以Xposed思维设计Http拦截框架
+```groovy
+ implementation 'com.github.Humenger.androidlib:Httposed:{latest_version}'
+```

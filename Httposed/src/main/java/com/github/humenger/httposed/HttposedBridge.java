@@ -4,6 +4,8 @@ created by humenger on 2022/9/22
 */
 
 
+import android.net.Uri;
+
 import java.lang.reflect.Member;
 import java.util.Arrays;
 
@@ -11,7 +13,7 @@ public class HttposedBridge {
     public static final String TAG="HttposedBridge";
     private static final Object[] EMPTY_ARRAY = new Object[0];
 
-    public static void unhookMethod(Member hookMethod, HC_MethodHook hc_methodHook) {
+    public static void unhookUri(Uri uri, HC_UriHook hook) {
 
     }
 

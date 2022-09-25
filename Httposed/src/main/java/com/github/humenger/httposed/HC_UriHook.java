@@ -1,16 +1,18 @@
 package com.github.humenger.httposed;
 
+import android.net.Uri;
+
 import com.github.humenger.httposed.callbacks.HCallback;
 import com.github.humenger.httposed.callbacks.IHUnhook;
 
 import java.lang.reflect.Member;
 
-public abstract class HC_MethodHook extends HCallback {
-    public static final String TAG = "HC_MethodHook";
-    public HC_MethodHook(){
+public abstract class HC_UriHook extends HCallback {
+    public static final String TAG = "HC_UriHook";
+    public HC_UriHook(){
         super();
     }
-    public HC_MethodHook(int priority) {
+    public HC_UriHook(int priority) {
         super(priority);
     }
     /**
@@ -24,7 +26,7 @@ public abstract class HC_MethodHook extends HCallback {
      * @param param Information about the method call.
      * @throws Throwable Everything the callback throws is caught and logged.
      */
-    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {}
+    protected void beforeHookedRequest(MethodHookParam param) throws Throwable {}
 
     /**
      * Called after the invocation of the method.
@@ -37,7 +39,13 @@ public abstract class HC_MethodHook extends HCallback {
      * @param param Information about the method call.
      * @throws Throwable Everything the callback throws is caught and logged.
      */
-    protected void afterHookedMethod(MethodHookParam param) throws Throwable {}
+    protected void afterHookedResponse(MethodHookParam param) throws Throwable {}
+    public static final class HResponse{
+
+    }
+    public static final class HRequest{
+
+    }
     /**
      * Wraps information about the method call and allows to influence it.
      */
@@ -55,23 +63,23 @@ public abstract class HC_MethodHook extends HCallback {
         public Object thisObject;
 
         /** Arguments to the method call. */
-        public String uri;
+        public HRequest request;
 
-        private Object result = null;
+        private HResponse result = null;
         private Throwable throwable = null;
         /* package */ boolean returnEarly = false;
 
         /** Returns the result of the method call. */
-        public Object getResult() {
+        public HResponse getResult() {
             return result;
         }
 
         /**
          * Modify the result of the method call.
          *
-         * <p>If called from {@link #beforeHookedMethod}, it prevents the call to the original method.
+         * <p>If called from {@link #beforeHookedRequest}, it prevents the call to the original method.
          */
-        public void setResult(Object result) {
+        public void setResult(HResponse result) {
             this.result = result;
             this.throwable = null;
             this.returnEarly = true;
@@ -90,7 +98,7 @@ public abstract class HC_MethodHook extends HCallback {
         /**
          * Modify the exception thrown of the method call.
          *
-         * <p>If called from {@link #beforeHookedMethod}, it prevents the call to the original method.
+         * <p>If called from {@link #beforeHookedRequest}, it prevents the call to the original method.
          */
         public void setThrowable(Throwable throwable) {
             this.throwable = throwable;
@@ -108,29 +116,29 @@ public abstract class HC_MethodHook extends HCallback {
     /**
      * An object with which the method/constructor can be unhooked.
      */
-    public class Unhook implements IHUnhook<HC_MethodHook> {
-        private final Member hookMethod;
+    public class Unhook implements IHUnhook<HC_UriHook> {
+        private final Uri hookUri;
 
-        /*package*/ Unhook(Member hookMethod) {
-            this.hookMethod = hookMethod;
+        /*package*/ Unhook(Uri hookUri) {
+            this.hookUri = hookUri;
         }
 
         /**
          * Returns the method/constructor that has been hooked.
          */
-        public Member getHookedMethod() {
-            return hookMethod;
+        public Uri getHookedUri() {
+            return hookUri;
         }
 
         @Override
-        public HC_MethodHook getCallback() {
-            return HC_MethodHook.this;
+        public HC_UriHook getCallback() {
+            return HC_UriHook.this;
         }
 
         @SuppressWarnings("deprecation")
         @Override
         public void unhook() {
-            HttposedBridge.unhookMethod(hookMethod, HC_MethodHook.this);
+            HttposedBridge.unhookUri(hookUri, HC_UriHook.this);
         }
 
     }
