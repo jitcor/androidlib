@@ -7,6 +7,7 @@ public class ProxyRule implements Comparable<ProxyRule>{
     public int id;
     public String match;
     public String replace;
+    public String originalHost;
     public String mirrorHost;
     public int delayMs=60*1000;
     public float pingFailedProportion;

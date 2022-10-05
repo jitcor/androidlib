@@ -8,6 +8,11 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        GithubProxyHelpers.init();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                GithubProxyHelpers.init(App.this);
+            }
+        }).start();
     }
 }
