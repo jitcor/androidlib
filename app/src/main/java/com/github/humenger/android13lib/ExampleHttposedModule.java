@@ -15,7 +15,7 @@ public class ExampleHttposedModule implements IHttposedInit {
             @Override
             protected void afterHookedResponse(MethodHookParam param) throws Throwable {
                 super.afterHookedResponse(param);
-                Uri.parse(param.uri);
+//                Uri.parse(param.uri);
             }
         });
     }

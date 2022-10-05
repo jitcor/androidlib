@@ -54,3 +54,15 @@ HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
 ```groovy
  implementation 'com.github.Humenger.androidlib:Httposed:{latest_version}'
 ```
+# 接入GithubProxyHelpers
+```groovy
+ implementation 'com.github.Humenger.androidlib:GithubProxyHelpers:{latest_version}'
+```
+# 使用GithubProxyHelpers
+- 初始化 可以放在Application.onCreate()函数里  
+```java
+GithubProxyHelpers.init();
+```
+```java
+GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/serifer/alertclose/main/frida.json")
+```

@@ -25,6 +25,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/io.netty.versions.properties'
+    }
 }
 
 dependencies {
@@ -38,4 +44,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation project(":RSharedPreferences")
     implementation project(":Httposed")
+    implementation project(":GithubProxyHelpers")
 }
