@@ -16,5 +16,8 @@ public class ProxyRule implements Comparable<ProxyRule>{
         Log.d(TAG, "compareTo: this.delayMs:"+delayMs+",proxyRule.delayMs:"+proxyRule.delayMs);
         return delayMs-proxyRule.delayMs;
     }
+    public boolean isFailed(){
+        return pingFailedProportion>=100f;
+    }
 
 }

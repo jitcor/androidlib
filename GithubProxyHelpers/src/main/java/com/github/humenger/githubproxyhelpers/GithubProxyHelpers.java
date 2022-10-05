@@ -50,7 +50,7 @@ public class GithubProxyHelpers {
                     @Override
                     public void onPingException(Exception e, int index) {
                         failedCount++;
-                        proxyRule.pingFailedProportion=failedCount/10f;
+                        proxyRule.pingFailedProportion=failedCount/10f*100;
                     }
                 });
                 pingV2.setCount(10);
@@ -62,6 +62,7 @@ public class GithubProxyHelpers {
         }else {
             Ping.start(proxyRule.mirrorHost, 10, null, r -> {
                 proxyRule.delayMs= (int) r.avg;
+                proxyRule.pingFailedProportion=r.dropped/10f*100;
             });
 
         }
@@ -77,7 +78,11 @@ public class GithubProxyHelpers {
 
     public static String getProxyUrl(String originalUrl){
         Collections.sort(proxyRules);
-        return originalUrl.replace(proxyRules.get(0).match,proxyRules.get(0).replace);
+        for (ProxyRule proxyRule : proxyRules) {
+            if(proxyRule.isFailed())continue;
+            return originalUrl.replace(proxyRule.match,proxyRule.replace);
+        }
+        return originalUrl;
     }
 
 }
