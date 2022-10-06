@@ -112,7 +112,7 @@ public class GithubProxyHelpers {
     public static void init(Context context){
         preferences=context.getSharedPreferences("github_proxy_helpers",Context.MODE_PRIVATE);
         initData();
-        checkDelay();
+        new Thread(GithubProxyHelpers::checkDelay).start();
     }
 
     private static void initData() {
