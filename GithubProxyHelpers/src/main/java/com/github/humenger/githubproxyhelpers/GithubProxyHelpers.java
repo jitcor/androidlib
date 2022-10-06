@@ -2,6 +2,7 @@ package com.github.humenger.githubproxyhelpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 
@@ -158,6 +159,7 @@ public class GithubProxyHelpers {
         Collections.sort(proxyRules);
         for (ProxyRule proxyRule : proxyRules) {
             if(proxyRule.isFailed())continue;
+            if(!Uri.parse(originalUrl).getHost().equals(proxyRule.originalHost))continue;
             return originalUrl.replace(proxyRule.match,proxyRule.replace);
         }
         return originalUrl;
