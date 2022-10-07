@@ -5,12 +5,14 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.util.Log;
 
 import com.qiniu.android.netdiag.Ping;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GithubProxyHelpers {
-
+    public static final String TAG="GithubProxyHelpers";
     private static final int timeout=10*1000;//10s
     private static final List<ProxyRule> proxyRules=new ArrayList<>();
     private static SharedPreferences preferences;
@@ -65,6 +67,13 @@ public class GithubProxyHelpers {
                     int failedCount=0;
                     @Override
                     public void onPing(long timeMs, int index) {
+                        if(timeMs==PingV2.TIMED_OUT_MS){
+                            onPingException(new IOException("timeout"),index);
+                            return;
+                        }
+                        if(proxyRule.mirrorHost.contains("gh.wget.cool")){
+                            Log.d(TAG, "onPing: :"+timeMs+","+index);
+                        }
                         allTimeMs+=timeMs;
                         proxyRule.delayMs=allTimeMs/(index+1-failedCount);
                         if(index==9){
@@ -81,6 +90,9 @@ public class GithubProxyHelpers {
 
                     @Override
                     public void onPingException(Exception e, int index) {
+                        if(proxyRule.mirrorHost.contains("gh.wget.cool")){
+                            Log.d(TAG, "onPingException: :"+","+index);
+                        }
                         failedCount++;
                         proxyRule.pingFailedProportion=failedCount/10f*100;
                         if(index==9){
