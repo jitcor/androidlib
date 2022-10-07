@@ -55,14 +55,15 @@ HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
  implementation 'com.github.Humenger.androidlib:Httposed:{latest_version}'
 ```
 # 接入GithubProxyHelpers
+- 处理github国内无法访问问题，可以不用配置代理，快捷访问github
 ```groovy
  implementation 'com.github.Humenger.androidlib:GithubProxyHelpers:{latest_version}'
 ```
 # 使用GithubProxyHelpers
-- 初始化 可以放在Application.onCreate()函数里  
 ```java
-GithubProxyHelpers.init();
+//初始化 可以放在Application.onCreate()函数里  
+GithubProxyHelpers.init(context);
 ```
 ```java
-GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/serifer/alertclose/main/frida.json")
+GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/xxxx")
 ```
