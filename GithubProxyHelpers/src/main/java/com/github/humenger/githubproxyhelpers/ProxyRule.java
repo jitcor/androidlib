@@ -24,4 +24,7 @@ public class ProxyRule implements Comparable<ProxyRule>{
         return pingFailedProportion>=80f;
     }
 
+    public Map<String, String> getHeaders(Map<String,String> def) {
+        return headers==null?def:headers;
+    }
 }
