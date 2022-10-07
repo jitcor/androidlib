@@ -2,6 +2,8 @@ package com.github.humenger.githubproxyhelpers;
 
 import android.util.Log;
 
+import java.util.Map;
+
 public class ProxyRule implements Comparable<ProxyRule>{
     public static final String TAG="ProxyRule";
     public int id;
@@ -11,6 +13,7 @@ public class ProxyRule implements Comparable<ProxyRule>{
     public String mirrorHost;
     public int delayMs=60*1000;
     public float pingFailedProportion;
+    public Map<String,String> headers;
 
     @Override
     public int compareTo(ProxyRule proxyRule) {
@@ -18,7 +21,7 @@ public class ProxyRule implements Comparable<ProxyRule>{
         return delayMs-proxyRule.delayMs;
     }
     public boolean isFailed(){
-        return pingFailedProportion>=100f;
+        return pingFailedProportion>=80f;
     }
 
 }

@@ -63,7 +63,7 @@ public static final String TAG="SettingsActivity";
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Log.d(TAG, "onCreatePreferences: new Url:"+GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/serifer/alertclose/main/frida.json"));
+                            Log.d(TAG, "onCreatePreferences: new Url:"+GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/serifer/alertclose/main/frida.json").proxyUrl);
                         }
                     }).start();
 

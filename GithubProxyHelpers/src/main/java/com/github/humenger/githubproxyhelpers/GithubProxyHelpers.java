@@ -17,6 +17,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class GithubProxyHelpers {
@@ -32,7 +33,9 @@ public class GithubProxyHelpers {
         proxyRules.add(new ProxyRule(){{id=1002;
             match ="https://raw.githubusercontent.com/";replace="https://gh.wget.cool/https://raw.githubusercontent.com/";mirrorHost="gh.wget.cool";originalHost="raw.githubusercontent.com";}});
         proxyRules.add(new ProxyRule(){{id=1003;
-            match ="https://raw.githubusercontent.com/";replace="https://y8b4odqg.fast-github.ml/-----https://raw.githubusercontent.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="raw.githubusercontent.com";}});
+            match ="https://raw.githubusercontent.com/";replace="https://y8b4odqg.fast-github.ml/http/https://raw.githubusercontent.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="raw.githubusercontent.com";
+            headers=new HashMap<>();headers.put("referer","1");
+        }});
         proxyRules.add(new ProxyRule(){{id=1004;
             match ="https://raw.githubusercontent.com/";replace="https://ghproxy.com/https://raw.githubusercontent.com/";mirrorHost="ghproxy.com";originalHost="raw.githubusercontent.com";}});
         proxyRules.add(new ProxyRule(){{id=1005;
@@ -45,7 +48,9 @@ public class GithubProxyHelpers {
         proxyRules.add(new ProxyRule(){{id=2001;
             match ="https://github.com/";replace="https://gh.wget.cool/https://github.com/";mirrorHost="gh.wget.cool";originalHost="github.com";}});
         proxyRules.add(new ProxyRule(){{id=2002;
-            match ="https://github.com/";replace="https://y8b4odqg.fast-github.ml/-----https://github.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="github.com";}});
+            match ="https://github.com/";replace="https://y8b4odqg.fast-github.ml/http/https://github.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="github.com";
+            headers=new HashMap<>();headers.put("referer","1");
+        }});
         proxyRules.add(new ProxyRule(){{id=2003;
             match ="https://github.com/";replace="https://ghproxy.com/https://github.com/";mirrorHost="ghproxy.com";originalHost="github.com";}});
 
@@ -167,14 +172,21 @@ public class GithubProxyHelpers {
         proxyRules.add(proxyRule);
     }
 
-    public static String getProxyUrl(String originalUrl){
+    public static ProxyUrl getProxyUrl(String oriUrl){
         Collections.sort(proxyRules);
         for (ProxyRule proxyRule : proxyRules) {
             if(proxyRule.isFailed())continue;
-            if(!Uri.parse(originalUrl).getHost().equals(proxyRule.originalHost))continue;
-            return originalUrl.replace(proxyRule.match,proxyRule.replace);
+            if(!Uri.parse(oriUrl).getHost().equals(proxyRule.originalHost))continue;
+            return new ProxyUrl(){{
+                originalUrl=oriUrl;
+                proxyUrl =oriUrl.replace(proxyRule.match,proxyRule.replace);
+                headers=proxyRule.headers;
+            }};
         }
-        return originalUrl;
+        return new ProxyUrl(){{
+            originalUrl=oriUrl;
+            proxyUrl =oriUrl;
+        }};
     }
 
 }
