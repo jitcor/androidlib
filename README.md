@@ -48,6 +48,8 @@ XReflectHelpers.XXXX();
 ```java
 //根据class名字查找其对应的系统jar所在路径
 HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
+//获取当前进程名，目测支持android4-最新系统版本
+HSystemHelpers.getProcessName(context);
 ```
 # 接入Httposed(开发中)
 - 以Xposed思维设计Http拦截框架
