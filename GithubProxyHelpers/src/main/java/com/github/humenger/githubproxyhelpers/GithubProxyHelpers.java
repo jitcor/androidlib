@@ -19,11 +19,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GithubProxyHelpers {
     public static final String TAG="GithubProxyHelpers";
     private static final int timeout=10*1000;//10s
-    private static final List<ProxyRule> proxyRules=new ArrayList<>();
+    private static final CopyOnWriteArrayList<ProxyRule> proxyRules=new CopyOnWriteArrayList<>();
     private static SharedPreferences preferences;
     static {
         proxyRules.add(new ProxyRule(){{id=1000;
