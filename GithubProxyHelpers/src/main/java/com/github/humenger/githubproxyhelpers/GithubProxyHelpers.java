@@ -33,10 +33,10 @@ public class GithubProxyHelpers {
             match ="https://raw.githubusercontent.com/";replace="https://raw.fastgit.org/";mirrorHost="raw.fastgit.org";originalHost="raw.githubusercontent.com";}});
         proxyRules.add(new ProxyRule(){{id=1002;
             match ="https://raw.githubusercontent.com/";replace="https://gh.wget.cool/https://raw.githubusercontent.com/";mirrorHost="gh.wget.cool";originalHost="raw.githubusercontent.com";}});
-        proxyRules.add(new ProxyRule(){{id=1003;
-            match ="https://raw.githubusercontent.com/";replace="https://y8b4odqg.fast-github.ml/http/https://raw.githubusercontent.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="raw.githubusercontent.com";
-            headers=new HashMap<>();headers.put("referer","1");
-        }});
+//        proxyRules.add(new ProxyRule(){{id=1003;
+//            match ="https://raw.githubusercontent.com/";replace="https://y8b4odqg.fast-github.ml/http/https://raw.githubusercontent.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="raw.githubusercontent.com";
+//            headers=new HashMap<>();headers.put("referer","1");
+//        }});
         proxyRules.add(new ProxyRule(){{id=1004;
             match ="https://raw.githubusercontent.com/";replace="https://ghproxy.com/https://raw.githubusercontent.com/";mirrorHost="ghproxy.com";originalHost="raw.githubusercontent.com";}});
         proxyRules.add(new ProxyRule(){{id=1005;
@@ -48,10 +48,10 @@ public class GithubProxyHelpers {
             match ="https://github.com/";replace="https://download.fastgit.org/";mirrorHost="download.fastgit.org";originalHost="github.com";}});
         proxyRules.add(new ProxyRule(){{id=2001;
             match ="https://github.com/";replace="https://gh.wget.cool/https://github.com/";mirrorHost="gh.wget.cool";originalHost="github.com";}});
-        proxyRules.add(new ProxyRule(){{id=2002;
-            match ="https://github.com/";replace="https://y8b4odqg.fast-github.ml/http/https://github.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="github.com";
-            headers=new HashMap<>();headers.put("referer","1");
-        }});
+//        proxyRules.add(new ProxyRule(){{id=2002;
+//            match ="https://github.com/";replace="https://y8b4odqg.fast-github.ml/http/https://github.com/";mirrorHost="y8b4odqg.fast-github.ml";originalHost="github.com";
+//            headers=new HashMap<>();headers.put("referer","1");
+//        }});
         proxyRules.add(new ProxyRule(){{id=2003;
             match ="https://github.com/";replace="https://ghproxy.com/https://github.com/";mirrorHost="ghproxy.com";originalHost="github.com";}});
 
