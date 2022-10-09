@@ -173,6 +173,23 @@ public class GithubProxyHelpers {
         proxyRules.add(proxyRule);
     }
 
+    public static void removeProxyRule(int id){
+        for (ProxyRule rule : proxyRules) {
+            if(rule.id==id){
+               proxyRules.remove(rule);
+            }
+        }
+
+    }
+    public static void removeProxyRule(String mirrorHost){
+        for (ProxyRule rule : proxyRules) {
+            if(rule.mirrorHost.equals(mirrorHost)){
+                proxyRules.remove(rule);
+            }
+        }
+
+    }
+
     public static ProxyUrl getProxyUrl(String oriUrl){
         Collections.sort(proxyRules);
         for (ProxyRule proxyRule : proxyRules) {
