@@ -69,3 +69,20 @@ GithubProxyHelpers.init(context);
 ```java
 GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/xxxx")
 ```
+
+# 接入MiniBrowser
+- 让App内置一个迷你浏览器
+```groovy
+ implementation 'com.github.Humenger.androidlib:MiniBrowser:{latest_version}'
+```
+# 使用MiniBrowser
+```xml
+    <com.github.Humenger.mininrowser.MiniBrowser
+        android:id="@+id/mini_browser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+```
+```java
+MiniBrowser browser = findViewById(R.id.mini_browser);
+browser.loadUrl("https://baidu.com/");
+```
