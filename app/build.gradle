@@ -45,4 +45,5 @@ dependencies {
     implementation project(":RSharedPreferences")
     implementation project(":Httposed")
     implementation project(":GithubProxyHelpers")
+    implementation "androidx.tonyodev.fetch2:xfetch2:3.1.6"
 }
