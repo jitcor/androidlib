@@ -11,8 +11,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 class SoLibrary {
+    private static final Pattern soPathRegex=Pattern.compile("/data/(app|data)/[ \\.=a-zA-Z0-9-_/~!,|+;:'\"&%\\*\\?\\\\]*lib.*\\.so");
 
      public static List<File> readLoadedSoLibrary(boolean onlyApp) {
          List<File> soFiles=new ArrayList<>();
@@ -30,7 +32,7 @@ class SoLibrary {
                              String str = tempString.substring(index);
                              // 所有so库（包括系统的，即包含/system/目录下的）
                              if (onlyApp) {
-                                 if (str.startsWith("/data/app/")) {
+                                 if (soPathRegex.matcher(str).find()) {
                                      soFiles.add(new File(str));
                                  }
                              } else {

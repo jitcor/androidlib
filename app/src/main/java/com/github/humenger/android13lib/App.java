@@ -11,8 +11,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        new Thread(() -> {
-            Log.d(TAG, "onCreate: :"+HSystemHelpers.getLoadSoLibrary(false));
-        }).start();
+
     }
 }

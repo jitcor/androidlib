@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.os.FileUtils;
 import android.preference.PreferenceActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.humenger.rsharedpreferences.RSharedPreferences;
 import com.tonyodev.fetch2.AbstractFetchListener;
@@ -46,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btn=new Button(this);
+        btn.setText("执行");
+        btn.setOnClickListener(v -> {
+            new Thread(() -> {
+//            Log.d(TAG, "onCreate: :"+HSystemHelpers.getLoadSoLibrary(false));
+                Log.d(TAG, "onCreate: :"+TamperingProtection.getFilesCount(MainActivity.this));
+            }).start();
+        });
+        setContentView(btn);
         processPermissions();
 //        RSharedPreferences.getSharedPreferences(this,"www", Context.MODE_WORLD_READABLE);
         FetchConfiguration fetchConfiguration = new FetchConfiguration.Builder(this)
