@@ -10,11 +10,9 @@ import com.github.humenger.xreflecthelpers.XReflectHelpers;
 
 import net.dongliu.apk.parser.ApkFile;
 import net.dongliu.apk.parser.bean.DexClass;
-
 import java.io.File;
 import java.util.List;
 
-import dalvik.system.DexClassLoader;
 import me.weishu.reflection.Reflection;
 
 public class HSystemHelpers {
@@ -61,5 +59,10 @@ public class HSystemHelpers {
         }
         return null;
     }
+
+    public static List<File> getLoadSoLibrary(boolean onlyApp){
+        return SoLibrary.readLoadedSoLibrary(onlyApp);
+    }
+
 
 }

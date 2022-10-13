@@ -50,6 +50,8 @@ XReflectHelpers.XXXX();
 HSystemHelpers.findSystemJarPathWithClassName("android.app.Activity");
 //获取当前进程名，目测支持android4-最新系统版本
 HSystemHelpers.getProcessName(context);
+//获取已加载的so库列表
+HSystemHelpers.getLoadSoLibrary(onlyApp);
 ```
 # 接入Httposed(开发中)
 - 以Xposed思维设计Http拦截框架
