@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/RSharedPreferences" />
             <option value="$PROJECT_DIR$/XReflectHelpers" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/multi-level-listview" />
           </set>
         </option>
       </GradleProjectSettings>
