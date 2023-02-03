@@ -43,18 +43,18 @@ public class RSharedPreferences {
                 SharedPreferences preferences = context.getSharedPreferences(name, mode);
                 XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return preferences;
-            }catch (Throwable throwable){
+            } catch (Throwable throwable) {
                 throwable.printStackTrace();
-                return context.getSharedPreferences(name,mode);
+                return context.getSharedPreferences(name, mode);
             }
-        }else {
-            return context.getSharedPreferences(name,mode);
+        } else {
+            return context.getSharedPreferences(name, mode);
         }
 
     }
-    public static SharedPreferences getSharedPreferences(PreferenceManager preferenceManager){
-        Context context=preferenceManager.getContext();
-        if(context==null)return preferenceManager.getSharedPreferences();
+
+    public static SharedPreferences getAndroidxSharedPreferences(PreferenceManager preferenceManager) {
+        Context context = preferenceManager.getContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
 //                if(Reflection.unseal(context)!=0){
@@ -65,18 +65,19 @@ public class RSharedPreferences {
                 SharedPreferences preferences = preferenceManager.getSharedPreferences();
                 XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return preferences;
-            }catch (Throwable throwable){
+            } catch (Throwable throwable) {
                 throwable.printStackTrace();
                 return preferenceManager.getSharedPreferences();
             }
-        }else {
+        } else {
             return preferenceManager.getSharedPreferences();
         }
 
     }
-    public static SharedPreferences getSharedPreferences(android.preference.PreferenceManager preferenceManager){
-        Context context= (Context) XReflectHelpers.callMyMethod(preferenceManager,"getContext");
-        if(context==null)return preferenceManager.getSharedPreferences();
+
+    @Deprecated
+    public static SharedPreferences getSharedPreferences(android.preference.PreferenceManager preferenceManager, Context context) {
+        if (context == null) return preferenceManager.getSharedPreferences();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
 //                if(Reflection.unseal(context)!=0){
