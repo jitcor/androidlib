@@ -84,7 +84,18 @@ GithubProxyHelpers.getProxyUrl("https://raw.githubusercontent.com/xxxx")
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 ```
+
 ```java
 MiniBrowser browser = findViewById(R.id.mini_browser);
 browser.loadUrl("https://baidu.com/");
 ```
+
+# 接入multi-level-listview
+
+- 多级菜单
+
+```groovy
+ implementation 'com.github.Humenger.androidlib:multi-level-listview:{latest_version}'
+```
+
+# 使用multi-level-listview

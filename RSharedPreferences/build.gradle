@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         minSdk 14
-        targetSdk 31
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,7 +32,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 //    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.github.tiann:FreeReflection:3.1.0'
+//    implementation 'com.github.tiann:FreeReflection:3.1.0'
     implementation project(":XReflectHelpers")
-    compileOnly 'androidx.preference:preference:1.1.1'
+    compileOnly 'androidx.preference:preference:1.2.0'
 }
