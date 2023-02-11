@@ -10,15 +10,15 @@ import com.github.humenger.xreflecthelpers.XReflectHelpers;
 
 import net.dongliu.apk.parser.ApkFile;
 import net.dongliu.apk.parser.bean.DexClass;
+
 import java.io.File;
 import java.util.List;
 
-import me.weishu.reflection.Reflection;
 
 public class HSystemHelpers {
     public static final String TAG = "HSystemHelpers";
     public static String findSystemJarPathWithClassName(String className){
-        String sysJarList[]=System.getenv("BOOTCLASSPATH").split(":");
+        String[] sysJarList = System.getenv("BOOTCLASSPATH").split(":");
         for (String jarPath:sysJarList){
             try{
                 ApkFile apkFile=new ApkFile(new File(jarPath));
@@ -38,9 +38,7 @@ public class HSystemHelpers {
             return Application.getProcessName();
         }
         try {
-            if(Reflection.unseal(context)==0){
-               return (String)XReflectHelpers.callMyStaticMethod(XReflectHelpers.findMyClass("android.app.ActivityThread",null),"currentProcessName");
-            }
+            return (String) XReflectHelpers.callMyStaticMethod(XReflectHelpers.findMyClass("android.app.ActivityThread", null), "currentProcessName");
         }catch (Throwable throwable){
             throwable.printStackTrace();
         }
