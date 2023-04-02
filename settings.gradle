@@ -13,9 +13,21 @@ dependencyResolutionManagement {
         maven {
             url 'https://jitpack.io'
         }
+        maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        jcenter()
     }
 }
 rootProject.name = "androidlib"
 include ':app'
 include ':RSharedPreferences'
 include ':XReflectHelpers'
+include ':HSystemHelpers'
+include ':Httposed'
+include ':GithubProxyHelpers'
+include ':MiniBrowser'
+include ':NetFileHelpers'
+include ':multi-level-listview'
+include ':LogLite'
+include ':MultiDexHook'
+include ':FrpHelper'
