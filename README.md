@@ -99,3 +99,15 @@ browser.loadUrl("https://baidu.com/");
 ```
 
 # 使用multi-level-listview
+
+# 接入LogLite
+
+```groovy
+ implementation 'com.github.Humenger.androidlib:LogLite:{latest_version}'
+```
+
+# 使用LogLite
+
+```java
+LogLite.tag("xx").i(format,args...);
+```
