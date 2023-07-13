@@ -101,6 +101,7 @@ browser.loadUrl("https://baidu.com/");
 # 使用multi-level-listview
 
 # 接入LogLite
+- 简单Log工具
 
 ```groovy
  implementation 'com.github.Humenger.androidlib:LogLite:{latest_version}'
@@ -110,4 +111,22 @@ browser.loadUrl("https://baidu.com/");
 
 ```java
 LogLite.tag("xx").i(format,args...);
+```
+
+# 接入MultiDexHook
+
+- Xposed下多dex Hook工具
+
+```groovy
+implementation 'com.github.Humenger.androidlib:MultiDexHook:{latest_version}'
+```
+
+# 使用MultiDexHook
+
+```java
+//初始化
+MultiDexHook.getInstance().init();
+//注册类加载器监听器，会回调所有拦截到的classLoader
+        MultiDexHook.getInstance().register((classLoader)->{});
+
 ```
