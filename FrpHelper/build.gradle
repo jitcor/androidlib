@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation project(":LogLite")
-    implementation files("libs/libfrp.aar")
-    compileOnly 'androidx.annotation:annotation:1.0.0'
+    implementation files("libs/libfrp.jar")
+    implementation 'androidx.annotation:annotation:1.0.0'
 
 }
