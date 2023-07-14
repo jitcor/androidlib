@@ -130,3 +130,17 @@ MultiDexHook.getInstance().init();
         MultiDexHook.getInstance().register((classLoader)->{});
 
 ```
+
+# 接入FrpHelper
+
+- 一个Android端Frp封装库
+
+```groovy
+implementation 'com.github.Humenger.androidlib:FrpHelper:{latest_version}'
+```
+
+# 使用FrpHelper
+
+```java
+FrpHelper.with(VERSION_0_42_0).startClientFormAssetsConfig(context,"frpc.ini");
+```
