@@ -144,3 +144,19 @@ implementation 'com.github.Humenger.androidlib:FrpHelper:{latest_version}'
 ```java
 FrpHelper.with(VERSION_0_42_0).startClientFormAssetsConfig(context,"frpc.ini");
 ```
+
+# 接入AndroidHideApi
+
+- 方便调用系统隐藏api
+
+```groovy
+compileOnly 'com.github.Humenger.androidlib:FrpHelper:{latest_version}'
+```
+
+> 注意：这里应使用compileOnly(仅用于通过编译)方式导入
+
+# 使用AndroidHideApi
+
+```java
+IBinder binder=ServiceManager.getService(NETWORKMANAGEMENT_SERVICE);
+```

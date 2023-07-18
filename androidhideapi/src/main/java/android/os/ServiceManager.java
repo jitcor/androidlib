@@ -1,6 +1,5 @@
 package android.os;
 
-import android.annotation.Nullable;
 
 public class ServiceManager {
 
@@ -10,7 +9,6 @@ public class ServiceManager {
      * @param name the name of the service to get
      * @return a reference to the service, or <code>null</code> if the service doesn't exist
      */
-    @Nullable
     public static IBinder getService(String name) {
         throw new RuntimeException("STUB");
     }
