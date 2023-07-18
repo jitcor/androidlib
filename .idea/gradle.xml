@@ -7,8 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../Tool/Android/gradle-6.0.1-all/gradle-6.0.1" />
-        <option name="gradleJvm" value="11" />
+        <option name="gradleJvm" value="Embedded JDK" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -22,6 +21,7 @@
             <option value="$PROJECT_DIR$/NetFileHelpers" />
             <option value="$PROJECT_DIR$/RSharedPreferences" />
             <option value="$PROJECT_DIR$/XReflectHelpers" />
+            <option value="$PROJECT_DIR$/androidhideapi" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/multi-level-listview" />
           </set>
