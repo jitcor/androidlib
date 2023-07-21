@@ -49,6 +49,14 @@ public class LogLite {
           Log.e(tag, t.getMessage(), t);
      }
 
-
+     public void Println(Object... args) {
+          if (args == null || args.length == 0) return;
+          StringBuilder builder = new StringBuilder();
+          for (Object arg : args) {
+               builder.append(arg);
+               builder.append(" ");
+          }
+          Log.v(tag, builder.toString());
+     }
 }
 
