@@ -163,10 +163,10 @@ IBinder binder=ServiceManager.getService(NETWORKMANAGEMENT_SERVICE);
 
 # 致谢 Thanks
 
+![IntelliJ IDEA logo](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.png)
+
 * 感谢[jetbrains公司](https://www.jetbrains.com)
   提供的[免费开源许可证](https://jb.gg/OpenSourceSupport)帮助我更好的开发本开源库
 * Thanks to [jetbrains company](https://www.jetbrains.com) for
   the [free open source license](https://jb.gg/OpenSourceSupport) for helping me to better develop
   this open source library.
-
-![IntelliJ IDEA logo](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.png)
