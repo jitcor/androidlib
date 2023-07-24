@@ -160,3 +160,13 @@ compileOnly 'com.github.Humenger.androidlib:FrpHelper:{latest_version}'
 ```java
 IBinder binder=ServiceManager.getService(NETWORKMANAGEMENT_SERVICE);
 ```
+
+# 致谢 Thanks
+
+*
+感谢![IntelliJ IDEA logo](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.png)
+提供的[免费开源许可证](https://jb.gg/OpenSourceSupport)帮助我更好的开发本开源库
+* Thanks
+  to ! [IntelliJ IDEA logo](https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.png)
+  for the [free open source license](https. //jb.gg/OpenSourceSupport) for helping me to better
+  develop this open source library.
