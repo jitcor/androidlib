@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/androidhideapi" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/multi-level-listview" />
+            <option value="$PROJECT_DIR$/netcuthelper" />
           </set>
         </option>
       </GradleProjectSettings>

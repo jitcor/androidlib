@@ -24,7 +24,6 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.RequiresApi;
 
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -99,8 +98,17 @@ public class MiniBrowser extends WebView {
         }
         mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         mWebSettings.setLoadsImagesAutomatically(true);
-        mWebSettings.setAppCacheEnabled(true);
-        mWebSettings.setAppCachePath(content.getCacheDir().getAbsolutePath());
+
+
+        //设配Android 13 refs:https://blog.csdn.net/qq_17766199/article/details/130520330
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            mWebSettings.setAppCacheEnabled(true);
+            mWebSettings.setAppCachePath(content.getCacheDir().getAbsolutePath());
+        } else {
+            mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);//true
+            //mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);//false
+        }
+
         mWebSettings.setDatabaseEnabled(true);
         mWebSettings.setGeolocationDatabasePath(content.getDir("database", 0).getPath());
         mWebSettings.setGeolocationEnabled(true);
