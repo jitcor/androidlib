@@ -101,7 +101,7 @@ public class MiniBrowser extends WebView {
 
 
         //设配Android 13 refs:https://blog.csdn.net/qq_17766199/article/details/130520330
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < 33) {
             mWebSettings.setAppCacheEnabled(true);
             mWebSettings.setAppCachePath(content.getCacheDir().getAbsolutePath());
         } else {
