@@ -16,15 +16,15 @@ public class RSharedPreferences {
 //                if (Reflection.unseal(context) != 0) {
 //                    Log.w(TAG, "getSharedPreferences: Disable hide api check failed");
 //                }
-                int ori = XReflectHelpers.getMyIntField(context.getApplicationInfo(), "targetSdkVersion");
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
+                int ori = XReflectHelpers.getIntField(context.getApplicationInfo(), "targetSdkVersion");
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
                 T obj = null;
                 try {
                     obj = callback.call();
                 } catch (Throwable throwable) {
                     throwable.printStackTrace();
                 }
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return obj;
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
@@ -38,10 +38,10 @@ public class RSharedPreferences {
 //                if(Reflection.unseal(context)!=0){
 //                    Log.w(TAG, "getSharedPreferences: Disable hide api check failed");
 //                }
-                int ori = XReflectHelpers.getMyIntField(context.getApplicationInfo(), "targetSdkVersion");
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
+                int ori = XReflectHelpers.getIntField(context.getApplicationInfo(), "targetSdkVersion");
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
                 SharedPreferences preferences = context.getSharedPreferences(name, mode);
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return preferences;
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
@@ -60,10 +60,10 @@ public class RSharedPreferences {
 //                if(Reflection.unseal(context)!=0){
 //                    Log.w(TAG, "getSharedPreferences: Disable hide api check failed");
 //                }
-                int ori = XReflectHelpers.getMyIntField(context.getApplicationInfo(), "targetSdkVersion");
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
+                int ori = XReflectHelpers.getIntField(context.getApplicationInfo(), "targetSdkVersion");
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
                 SharedPreferences preferences = preferenceManager.getSharedPreferences();
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return preferences;
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
@@ -83,10 +83,10 @@ public class RSharedPreferences {
 //                if(Reflection.unseal(context)!=0){
 //                    Log.w(TAG, "getSharedPreferences: Disable hide api check failed");
 //                }
-                int ori = XReflectHelpers.getMyIntField(context.getApplicationInfo(), "targetSdkVersion");
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
+                int ori = XReflectHelpers.getIntField(context.getApplicationInfo(), "targetSdkVersion");
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", Build.VERSION_CODES.M);
                 SharedPreferences preferences = preferenceManager.getSharedPreferences();
-                XReflectHelpers.setMyIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
+                XReflectHelpers.setIntField(context.getApplicationInfo(), "targetSdkVersion", ori);
                 return preferences;
             }catch (Throwable throwable){
                 throwable.printStackTrace();

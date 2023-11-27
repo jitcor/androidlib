@@ -38,7 +38,7 @@ public class HSystemHelpers {
             return Application.getProcessName();
         }
         try {
-            return (String) XReflectHelpers.callMyStaticMethod(XReflectHelpers.findMyClass("android.app.ActivityThread", null), "currentProcessName");
+            return (String) XReflectHelpers.callStaticMethod(XReflectHelpers.findClass("android.app.ActivityThread", null), "currentProcessName");
         }catch (Throwable throwable){
             throwable.printStackTrace();
         }
