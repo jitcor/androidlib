@@ -1,7 +1,9 @@
 package com.github.humenger.frphelper;
 
 import android.content.Context;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringDef;
 
 import com.github.humenger.loglite.LogLite;
@@ -31,6 +33,7 @@ public final class FrpHelper {
           return new FrpHelper(version);
      }
 
+     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
      public Throwable startClientFormTextConfig(Context context, String frpConfig) {
           try {
                File file = writeFiles(context, frpConfig.getBytes(StandardCharsets.UTF_8));
@@ -59,6 +62,7 @@ public final class FrpHelper {
           return null;
      }
 
+     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
      public Throwable startServerFormTextConfig(Context context, String frpConfig) {
           try {
                File file = writeFiles(context, frpConfig.getBytes(StandardCharsets.UTF_8));
